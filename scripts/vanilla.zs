@@ -1,6 +1,41 @@
 import crafttweaker.liquid.ILiquidStack;
 import crafttweaker.item.IItemStack;
 
+// Chem Trees
+// -- this is the "post-nerf" chem reactor wood recipe to hold us over
+// until we can rebuild the wood farm (it powers AE)
+
+var chemSaplings = [
+    <minecraft:sapling>,
+    <minecraft:sapling:1>,
+    <minecraft:sapling:2>,
+    <minecraft:sapling:3>,
+    <minecraft:sapling:4>,
+    <minecraft:sapling:5>,
+    <gregtech:rubber_sapling>
+] as IItemStack[];
+
+var chemLogs = [
+    <minecraft:log> * 32,
+    <minecraft:log:1> * 32,
+    <minecraft:log:2> * 32,
+    <minecraft:log:3> * 32,
+    <minecraft:log2> * 32,
+    <minecraft:log2:1> * 32,
+    <gregtech:rubber_log> * 32
+] as IItemStack[];
+
+for i, sapling in saplings {
+    chemical_reactor.recipeBuilder()
+        .notConsumable(sapling)
+        .fluidInputs([<liquid:water> * 1000])
+        .outputs(logs[i])
+        .duration(1200)
+        .EUt(16)
+        .buildAndRegister();
+}
+
+
 // Greenhouse Trees
 
 var saplings = [
