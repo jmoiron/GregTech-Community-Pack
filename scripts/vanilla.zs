@@ -25,11 +25,11 @@ var chemLogs = [
     <gregtech:rubber_log> * 32
 ] as IItemStack[];
 
-for i, sapling in saplings {
+for i, sapling in chemSaplings {
     chemical_reactor.recipeBuilder()
         .notConsumable(sapling)
         .fluidInputs([<liquid:water> * 1000])
-        .outputs(logs[i])
+        .outputs(chemLogs[i])
         .duration(1200)
         .EUt(16)
         .buildAndRegister();
